@@ -85,6 +85,9 @@ The project includes:
 - material and energy balance validation
 - preliminary equipment-performance checks
 - process-safety review
+- preliminary process instrumentation and control philosophy
+- alarm/interlock and safeguard definition
+- preliminary P&ID-level instrumentation planning
 - comparison against industrial/literature benchmarks
 
 ---
@@ -102,6 +105,8 @@ The current project does **not** claim:
 - flare-network design
 - full HAZOP/LOPA
 - SIL verification
+- final instrument set points or control-loop tuning
+- certified SIS design or final P&IDs
 - detailed metallurgy specification
 - civil/structural design
 - vendor-certified equipment selection
@@ -136,6 +141,7 @@ Current or planned operations include:
 - design specifications
 - sensitivity analysis
 - energy integration
+- control-oriented steady-state studies and instrument set-point basis
 
 Where possible, simple temporary blocks should later be replaced by more realistic equipment models once the required data are available.
 
@@ -157,10 +163,13 @@ Introduce documented engineering modifications.
 ### Level 4 — Validate
 Compare key results with literature, industrial references and independent calculations.
 
-### Level 5 — Stress-test
-Perform sensitivities and examine operating envelopes.
+### Level 5 — Instrument and safeguard
+Develop the preliminary control philosophy, instrumentation, alarms, interlocks and candidate safety-instrumented functions around a stable process design.
 
-### Level 6 — Release
+### Level 6 — Stress-test
+Perform sensitivities, abnormal-scenario studies and examine operating envelopes.
+
+### Level 7 — Release
 Publish a clean final flowsheet together with assumptions, limitations and validation evidence.
 
 ---
