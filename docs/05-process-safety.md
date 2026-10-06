@@ -1,6 +1,8 @@
-# Stage 9 Workstream — Process Safety
+# Stage 10 Workstream — Process Safety
 
 > **Status:** Working safety framework. Not a substitute for formal HAZOP, LOPA, relief design or professional review.
+
+The dedicated preliminary instrumentation/control workstream is documented in [Process instrumentation, control and safety safeguards](08-process-instrumentation-and-control.md).
 
 ---
 
@@ -126,6 +128,12 @@ The future process-safety package should at minimum consider:
 - benzene exposure-control strategy
 - safe catalyst loading/unloading
 - startup and shutdown sequences
+- BPCS control-loop philosophy
+- alarm rationalization
+- trip/interlock register
+- preliminary cause-and-effect matrix
+- candidate SIF identification before HAZOP/LOPA
+- clear independence between credited protection layers
 
 ---
 
