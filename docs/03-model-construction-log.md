@@ -237,10 +237,13 @@ A DWSIM **Recycle** operation is planned for the fully closed loop.
 
 A second flash was added after pressure reduction to remove remaining dissolved H2, CH4 and N2 before the distillation column.
 
-A representative liquid result was approximately:
+The second-flash liquid proceeds through HT-3 before the column. The resulting integrated column-feed stream 33 was observed at approximately:
 
 - total flow: 249.032 kmol/h
-- vapor fraction: 0
+- mass flow: 20,896.9 kg/h
+- temperature: 70 °C
+- pressure: 1.2 bar
+- vapor fraction: ~0.00386
 - cyclohexane: ~0.9775 mole fraction
 - benzene: ~0.0100
 - MCP: ~0.00985
@@ -280,11 +283,58 @@ Representative results:
 
 ### Comparison with source report
 
-The minimum-stage count is broadly similar to the source hand calculation.
+The minimum-stage count in this early case was broadly similar to the source hand calculation.
 
-The minimum reflux ratio is **much lower** than the source report's value.
+The minimum reflux ratio was **much lower** than the source report's value.
 
-This discrepancy is unresolved and must be investigated before final design acceptance.
+This discrepancy remains part of the development history and is unresolved.
+
+### Latest standalone rebuild
+
+The distillation section was later isolated into a standalone DWSIM case using the actual integrated process output as the basis.
+
+To diagnose whether the residual permanent gases were distorting the Shortcut Column, a hydrocarbon-only diagnostic feed was constructed by removing H2/CH4/N2 while retaining the actual hydrocarbon flow from stream 33.
+
+Approximate diagnostic feed:
+
+- total hydrocarbon flow: ~248.36 kmol/h
+- benzene: ~0.00998 mole fraction after renormalization
+- cyclohexane: ~0.98014
+- MCP: ~0.00987
+
+With:
+
+- LK = MCP
+- HK = cyclohexane
+- LK in bottoms = 0.001
+- HK in distillate = 0.001
+- total condenser
+- pressure near 1.01325 bar
+
+the Shortcut Column calculated approximately:
+
+- Rmin = 70.846
+- Nmin = 48.070
+- at R ~85:
+  - actual equilibrium stages = 93.418
+  - optimum feed stage = 15.807
+  - condenser duty = 446.0 kW
+  - reboiler duty = 1655.2 kW
+
+### New issue identified
+
+Despite removal of the permanent gases, the Shortcut Column still returned **negative condenser and reboiler temperatures**.
+
+These temperatures are not physically credible for the benzene/cyclohexane/MCP system near atmospheric pressure.
+
+The current diagnostic is therefore:
+
+1. inspect predicted distillate and bottoms compositions
+2. reproduce those compositions in independent material streams
+3. perform independent phase-equilibrium temperature checks
+4. isolate whether the problem lies in the shortcut product calculation, thermodynamic setup or specification choice
+
+The latest shortcut numbers are therefore **diagnostic results, not accepted design data**.
 
 ---
 
@@ -356,3 +406,21 @@ to:
 No final flowsheet should be published yet.
 
 The next accepted model version should converge the rigorous separation without introducing a physically unjustified numerical workaround.
+
+---
+
+## 17. Process instrumentation and safeguard planning
+
+A dedicated Stage 9 workstream has been added for preliminary process instrumentation, control philosophy and safety safeguards.
+
+Planned outputs include:
+
+- instrument index
+- P&ID-style instrumentation markup
+- control-loop narrative
+- alarm/interlock register
+- preliminary cause-and-effect matrix
+- candidate SIF identification
+- separation of BPCS, SIS, relief protection and fire/gas detection
+
+This work will be developed around a stable process model and linked to abnormal-scenario studies. Final trip set points and SIL claims are outside the current model until supported by HAZOP/LOPA, equipment limits and dynamic/safety studies.
