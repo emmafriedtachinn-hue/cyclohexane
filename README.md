@@ -4,7 +4,7 @@
 > **Simulation engine:** DWSIM  
 > **Thermodynamic model:** Peng–Robinson (current base case)  
 > **Nominal production target:** 500 t/day cyclohexane  
-> **Current status:** Rigorous distillation development and flowsheet audit in progress
+> **Current status:** Rigorous distillation troubleshooting, recycle closure and instrumentation/safeguard planning in progress
 
 ---
 
@@ -42,8 +42,9 @@ Every important design decision is tracked through four layers:
 - [x] **Stage 6 — Reactor-effluent cooling and phase separation**
 - [ ] **Stage 7 — Gas recycle, purge and full closed-loop convergence**
 - [ ] **Stage 8 — Rigorous distillation and product purification**
-- [ ] **Stage 9 — Sensitivity analysis, validation and process-safety review**
-- [ ] **Stage 10 — Final engineering assessment and release**
+- [ ] **Stage 9 — Process instrumentation, control philosophy and safety safeguards**
+- [ ] **Stage 10 — Sensitivity analysis, validation and process-safety review**
+- [ ] **Stage 11 — Final engineering assessment and release**
 
 The checkboxes represent the current simulation-development state, not completion of detailed engineering.
 
@@ -129,15 +130,21 @@ The current model therefore cools the effluent further before separation. The ex
 
 ### Distillation
 
-Shortcut-column work has been used to initialize the rigorous separation:
+The integrated model currently sends stream 33 to the purification column at approximately **249.032 kmol/h, 70 °C and 1.2 bar**, with a small vapor fraction and residual H2/CH4/N2.
 
-- Minimum stages: ~39.8
-- Minimum reflux ratio: ~18.45
-- Trial design reflux ratio: ~22.2
-- Estimated stages near this reflux ratio: ~78
-- Initial feed-stage estimate: ~15
+A standalone column case is now being used to diagnose the separation independently. In a hydrocarbon-only diagnostic feed derived from the actual simulation stream, the Shortcut Column returned approximately:
 
-The rigorous DWSIM column is still under development. Recent calculations have encountered Peng–Robinson compressibility/convergence errors, so solver choice, condenser configuration, light-gas removal, feed condition and specifications are being reviewed.
+- Minimum stages: **48.07**
+- Minimum reflux ratio: **70.85**
+- Trial design reflux ratio: **~85**
+- Estimated equilibrium stages: **93.4**
+- Optimum feed stage: **~15.8**
+- Condenser duty: **~446 kW**
+- Reboiler duty: **~1.66 MW**
+
+These values are **not yet accepted as final design data** because the shortcut model is still returning unphysical negative condenser/reboiler temperatures. The current task is to isolate whether the issue is caused by shortcut-product calculations, thermodynamic setup or specification choice before transferring any design to the rigorous column.
+
+Earlier shortcut and rigorous-column trials are retained in the construction log as development history.
 
 ## DWSIM Skills Practiced
 
@@ -161,6 +168,9 @@ This project is intentionally being used as a broad DWSIM learning exercise. Fea
 - Column convergence methods
 - Sensitivity studies
 - Equipment sizing and energy integration
+- Preliminary process instrumentation and control philosophy
+- Alarm/interlock and cause-and-effect development
+- Safety-instrumented-function screening
 
 ## Repository Structure
 
@@ -194,6 +204,7 @@ This project is intentionally being used as a broad DWSIM learning exercise. Fea
 - [Process safety](docs/05-process-safety.md)
 - [Sensitivity-analysis plan](docs/06-sensitivity-analysis.md)
 - [Engineering evaluation](docs/07-engineering-evaluation.md)
+- [Process instrumentation, control and safety safeguards](docs/08-process-instrumentation-and-control.md)
 
 ## Project Status
 
