@@ -34,13 +34,15 @@ Status labels:
 | Second flash | Not central in report flowsheet | Added before distillation | Provisional process modification | Helps remove noncondensables; quantify product loss |
 | Low-pressure flash loss | Not reported | Cyclohexane loss observed | Open issue | Recover or optimize |
 | Column method | Hand design | Shortcut then rigorous DWSIM column | Supported modeling progression | Rigorous convergence pending |
-| Column Rmin | ~151.8 in report | ~18.45 in shortcut model | Unresolved discrepancy | Revisit definitions/calculation basis |
-| Column Nmin | ~39 | ~39.8 | Agreement | Useful cross-check |
-| Column stages | ~68 theoretical / ~88 physical after efficiency | ~78 equilibrium stages from shortcut | Under review | Reconcile stage-count conventions and efficiency |
+| Column Rmin | ~151.8 in report | Early shortcut ~18.45; latest hydrocarbon-only diagnostic ~70.85 | Unresolved discrepancy | Revisit definitions, product specs, thermodynamics and calculation basis |
+| Column Nmin | ~39 | Early shortcut ~39.8; latest diagnostic ~48.07 | Under review | Latest case uses the rebuilt actual-feed basis |
+| Column stages | ~68 theoretical / ~88 physical after efficiency | Early shortcut ~78; latest diagnostic ~93.4 equilibrium stages at R~85 | Under review | Do not accept until temperature anomaly and stage conventions are resolved |
 | Condenser | Conventional source representation | Total initially; partial considered for noncondensables | Under review | Depends on residual H2/CH4/N2 |
 | Column solver | N/A | Several DWSIM solvers tested/planned | Numerical choice | Must not change physical model |
 | Benzene recycle | Not yet fully implemented in DWSIM | Concept considered | Planned | Close carbon balance only if separation scheme supports it |
 | Heat integration | Limited source exchanger work | Not yet optimized | Planned | Add after stable base case |
+| Instrumentation/control | Limited preliminary treatment | Dedicated P&ID-level control and safeguard workstream added | Planned | Define BPCS loops, alarms, interlocks, candidate SIFs and cause/effect after stable base case |
+| Instrument set points / SIL | Not fully developed | Not assigned | Planned / outside current maturity | Derive from operating limits, HAZOP/LOPA, dynamics and equipment data; do not guess |
 
 ---
 
