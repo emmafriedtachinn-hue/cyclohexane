@@ -1,4 +1,4 @@
-# Stage 10 — Engineering Evaluation
+# Stage 11 — Engineering Evaluation
 
 > **Status:** Planned framework.
 
@@ -71,6 +71,10 @@ For each major item, compare DWSIM operation against realistic equipment constra
 - column hydraulics
 - condenser feasibility
 - reboiler temperature
+- instrumentation coverage for key process variables
+- control-loop plausibility
+- alarm/interlock coverage
+- separation between BPCS, SIS candidates and mechanical relief protection
 
 ---
 
