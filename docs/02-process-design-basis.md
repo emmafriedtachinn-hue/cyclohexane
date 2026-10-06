@@ -198,15 +198,21 @@ The final purge fraction must satisfy:
 
 A second low-pressure flash has been added in the current DWSIM development model to reduce dissolved H2/CH4/N2 before distillation.
 
-A representative liquid stream observed during development was approximately:
+The second flash is followed by the current feed heater HT-3. The integrated model currently sends **stream 33** to the distillation section at approximately:
 
-- 249.0 kmol/h
-- ~97.75 mol% cyclohexane
-- ~1.0 mol% benzene
-- ~1.0 mol% MCP
-- small residual CH4/H2/N2
+- 249.032 kmol/h
+- 20,896.9 kg/h
+- 70 °C
+- 1.2 bar
+- vapor fraction ~0.00386
+- cyclohexane ~0.97750 mole fraction
+- benzene ~0.00996
+- MCP ~0.00985
+- CH4 ~0.00244
+- H2 ~0.000245
+- N2 trace
 
-The second flash also caused measurable cyclohexane loss in its vapor stream. That loss must be quantified and minimized or recovered in the final design.
+The second flash also causes measurable cyclohexane loss in its vapor stream. That loss must be quantified and minimized or recovered in the final design.
 
 ---
 
@@ -217,22 +223,42 @@ Shortcut-column development currently uses:
 - Light key: MCP
 - Heavy key: cyclohexane
 
-Representative shortcut results:
+Earlier shortcut work produced approximately Nmin ~39.8 and Rmin ~18.45. Those values are retained as historical development results, but the actual integrated feed condition has since been rebuilt in a standalone column case.
 
-| Quantity | Current result |
+For diagnostic purposes, residual H2/CH4/N2 were removed from stream 33 and the actual hydrocarbon flow was retained, giving a standalone feed near **248.36 kmol/h** containing benzene, cyclohexane and MCP.
+
+The latest Shortcut Column diagnostic produced:
+
+| Quantity | Latest diagnostic result |
 |---|---:|
-| Minimum stages | ~39.78 |
-| Minimum reflux ratio | ~18.45 |
-| Trial design reflux ratio | ~22.2 |
-| Estimated actual stages at R~22.2 | ~77.9 |
-| Initial optimum feed stage | ~14.6 |
-| Initial feed stage used | ~15 |
+| Minimum stages | ~48.07 |
+| Minimum reflux ratio | ~70.85 |
+| Trial design reflux ratio | ~85 |
+| Estimated actual equilibrium stages | ~93.42 |
+| Optimum feed stage | ~15.81 |
+| Condenser duty | ~446 kW |
+| Reboiler duty | ~1.655 MW |
 
-These values are **initialization data**, not the final rigorous-column design.
+These results are **not yet accepted as design data** because the Shortcut Column is still returning unphysical negative condenser/reboiler temperatures. The current priority is to diagnose the temperature/product-flash behavior before using these values to initialize the rigorous column.
 
 ---
 
-## Current rigorous-column issue
+## Current distillation-model issues
+
+### Shortcut-column temperature anomaly
+
+The latest hydrocarbon-only Shortcut Column case gives plausible-looking stage/reflux magnitudes but unphysical negative condenser and reboiler temperatures at approximately atmospheric pressure.
+
+The current diagnostic plan is to:
+
+- inspect shortcut distillate and bottoms compositions
+- reproduce each product composition in independent material streams
+- perform bubble/dew-point checks with Peng–Robinson
+- determine whether the anomaly originates in the shortcut calculation, product specification or thermodynamic setup
+
+No shortcut result will be accepted solely because the calculation converges.
+
+### Earlier rigorous-column issue
 
 A native DWSIM rigorous column has produced a Peng–Robinson error of the form:
 
@@ -279,3 +305,5 @@ The following remain provisional:
 - final distillation configuration
 - final pressure profile
 - heat-integration scheme
+- control philosophy and instrument set points
+- alarm/interlock and SIS architecture
