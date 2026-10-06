@@ -1,4 +1,4 @@
-# Stage 9 — Sensitivity Analysis Plan
+# Stage 10 — Sensitivity Analysis Plan
 
 > **Status:** Planned. Populate with results only after a stable base case is converged.
 
