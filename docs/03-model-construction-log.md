@@ -424,3 +424,18 @@ Planned outputs include:
 - separation of BPCS, SIS, relief protection and fire/gas detection
 
 This work will be developed around a stable process model and linked to abnormal-scenario studies. Final trip set points and SIL claims are outside the current model until supported by HAZOP/LOPA, equipment limits and dynamic/safety studies.
+
+
+---
+
+## 18. Temporary project pause
+
+The cyclohexane simulation is intentionally paused while a separate process-control learning exercise is completed.
+
+The purpose is to build stronger practical understanding of instrumentation, control-loop logic, P&ID interpretation, alarms/interlocks and preliminary safety safeguards before applying those concepts to the cyclohexane flowsheet.
+
+The exact technical resume point is documented in:
+
+[Project checkpoint — paused for process-control study](09-project-checkpoint-paused.md)
+
+No current model assumptions or unresolved issues should be reset when work resumes.
