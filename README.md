@@ -4,7 +4,7 @@
 > **Simulation engine:** DWSIM  
 > **Thermodynamic model:** Peng–Robinson (current base case)  
 > **Nominal production target:** 500 t/day cyclohexane  
-> **Current status:** Rigorous distillation troubleshooting, recycle closure and instrumentation/safeguard planning in progress
+> **Current status:** Temporarily paused at distillation troubleshooting while process-control/instrumentation is studied separately
 
 ---
 
@@ -205,6 +205,7 @@ This project is intentionally being used as a broad DWSIM learning exercise. Fea
 - [Sensitivity-analysis plan](docs/06-sensitivity-analysis.md)
 - [Engineering evaluation](docs/07-engineering-evaluation.md)
 - [Process instrumentation, control and safety safeguards](docs/08-process-instrumentation-and-control.md)
+- [Paused-project checkpoint / exact resume point](docs/09-project-checkpoint-paused.md)
 
 ## Project Status
 
